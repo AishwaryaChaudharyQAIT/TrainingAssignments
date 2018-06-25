@@ -18,7 +18,7 @@ public class MavenHRISLogin
 	{
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\AishwaryaChaudhary\\Desktop\\Aishwarya june\\chromedriver_win32\\chromedriver.exe");
 		driver = new ChromeDriver(); 
-
+		
 
 	}
 	@Test
@@ -30,12 +30,14 @@ public class MavenHRISLogin
 	@Test
 	public void step02_EnterInvalidPassword()
 	{
+		driver.findElement(By.cssSelector("a[href='#panel1']")).click();
 		WebElement loginID =driver.findElement(By.cssSelector("#txtUserName"));
 		WebElement password =driver.findElement(By.cssSelector("#txtPassword"));
 		WebElement submit =driver.findElement(By.cssSelector("div[class='loginTxtBtn extraText']"));
 		loginID.sendKeys("aishwaryachaudhary");
 		password.sendKeys("Aishwarya");
 		submit.submit();
+		driver.findElement(By.cssSelector("a[href='#panel1']")).click();
 		//Check By detecting Error Prompt
 		Assert.assertTrue(driver.findElement(By.cssSelector("#login > form > div.loginTxt.txtHideDiv.alert.alert-error > div")).getText().equals("Invalid Login"));
 
@@ -45,6 +47,7 @@ public class MavenHRISLogin
 
 	public void step03_EnterNoPassword()
 	{
+		driver.findElement(By.cssSelector("a[href='#panel1']")).click();
 		WebElement loginID =driver.findElement(By.cssSelector("#txtUserName"));
 		WebElement password =driver.findElement(By.cssSelector("#txtPassword"));
 		WebElement submit =driver.findElement(By.cssSelector("div[class='loginTxtBtn extraText']"));
@@ -62,6 +65,7 @@ public class MavenHRISLogin
 	@Test
 	public void step04_EnterValidPassword()
 	{
+		driver.findElement(By.cssSelector("a[href='#panel1']")).click();
 		WebElement loginID =driver.findElement(By.cssSelector("#txtUserName"));
 		WebElement password =driver.findElement(By.cssSelector("#txtPassword"));
 		WebElement submit =driver.findElement(By.cssSelector("div[class='loginTxtBtn extraText']"));
@@ -86,7 +90,7 @@ catch(NoSuchElementException e){
       }
 
 
-Assert.assertTrue(true);
+Assert.assertTrue(status);
 
 }
 	}
